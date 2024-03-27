@@ -1,0 +1,71 @@
+create_deck_optimized <- function(num = 1) {
+  deck = expand.grid(values = c(2:10, "A", "Q", "K", "J"), suits = c("S", "C", "D", "H"), stringsAsFactors = FALSE)
+  
+  res = do.call("rbind", replicate(num, deck, simplify = FALSE)) 
+  #res = data.table::rbindlist(replicate(num, deck, simplify = FALSE))
+  
+  res$lookup = paste0(res$values, res$suits)
+  res$point = vector('integer', dim(res)[1])
+  res$point[res$values %in% c("Q", "K", "J")] = 10
+  res$point[res$values %in% c(2:10)] = 2:10
+  res$point[res$values == "A"] = 1
+  
+  return(res)
+}
+
+Rprof()
+system.time({res2 = create_deck_optimized(5000)})
+Rprof(NULL)
+summaryRprof()
+
+   user  system elapsed 
+  0.204   0.000   0.204 
+$by.self
+                        self.time self.pct total.time total.pct
+"rbind"                      0.10    45.45       0.16     72.73
+"create_deck_optimized"      0.02     9.09       0.22    100.00
+"[[.data.frame"              0.02     9.09       0.02      9.09
+"findCenvVar"                0.02     9.09       0.02      9.09
+"is.matrix"                  0.02     9.09       0.02      9.09
+"length"                     0.02     9.09       0.02      9.09
+"paste0"                     0.02     9.09       0.02      9.09
+
+$by.total
+                        total.time total.pct self.time self.pct
+"create_deck_optimized"       0.22    100.00      0.02     9.09
+"system.time"                 0.22    100.00      0.00     0.00
+"rbind"                       0.16     72.73      0.10    45.45
+"do.call"                     0.16     72.73      0.00     0.00
+"[[.data.frame"               0.02      9.09      0.02     9.09
+"findCenvVar"                 0.02      9.09      0.02     9.09
+"is.matrix"                   0.02      9.09      0.02     9.09
+"length"                      0.02      9.09      0.02     9.09
+"paste0"                      0.02      9.09      0.02     9.09
+"[["                          0.02      9.09      0.00     0.00
+"cb$putconst"                 0.02      9.09      0.00     0.00
+"cmp"                         0.02      9.09      0.00     0.00
+"cmpCall"                     0.02      9.09      0.00     0.00
+"cmpCallArgs"                 0.02      9.09      0.00     0.00
+"cmpCallSymFun"               0.02      9.09      0.00     0.00
+"cmpfun"                      0.02      9.09      0.00     0.00
+"cmpSymbolAssign"             0.02      9.09      0.00     0.00
+"compiler:::tryCmpfun"        0.02      9.09      0.00     0.00
+"constantFold"                0.02      9.09      0.00     0.00
+"constantFoldCall"            0.02      9.09      0.00     0.00
+"doTryCatch"                  0.02      9.09      0.00     0.00
+"genCode"                     0.02      9.09      0.00     0.00
+"getFoldFun"                  0.02      9.09      0.00     0.00
+"getInlineInfo"               0.02      9.09      0.00     0.00
+"h"                           0.02      9.09      0.00     0.00
+"isBaseVar"                   0.02      9.09      0.00     0.00
+"tryCatch"                    0.02      9.09      0.00     0.00
+"tryCatchList"                0.02      9.09      0.00     0.00
+"tryCatchOne"                 0.02      9.09      0.00     0.00
+"tryInline"                   0.02      9.09      0.00     0.00
+
+$sample.interval
+[1] 0.02
+
+$sampling.time
+[1] 0.22
+
