@@ -49,12 +49,12 @@ create_deck_optimized <- function(num = 1) {
 }
 
 Rprof()
-system.time({res1 = create_deck(7500)})
+system.time({res1 = create_deck(5000)})
 Rprof(NULL)
 summaryRprof()
 
 Rprof()
-system.time({res2 = create_deck_optimized(7500)})
+system.time({res2 = create_deck_optimized(5000)})
 Rprof(NULL)
 summaryRprof()
 
