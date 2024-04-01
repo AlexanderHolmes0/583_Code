@@ -1,0 +1,134 @@
+/u/aholme27/git/583_Code
+loaded R
+   user  system elapsed 
+ 21.656   0.392  22.143 
+$by.self
+                 self.time self.pct total.time total.pct
+"rbind"              14.44    65.46      21.94     99.46
+"structure"           3.98    18.04       4.00     18.13
+"Make.row.names"      2.62    11.88       2.62     11.88
+"seq.int"             0.68     3.08       0.68      3.08
+"[[.data.frame"       0.04     0.18       0.08      0.36
+"%in%"                0.04     0.18       0.06      0.27
+"match.names"         0.04     0.18       0.04      0.18
+"create_deck"         0.02     0.09      22.06    100.00
+"FUN"                 0.02     0.09       0.04      0.18
+"as.integer"          0.02     0.09       0.02      0.09
+"attr"                0.02     0.09       0.02      0.09
+"attributes"          0.02     0.09       0.02      0.09
+"character"           0.02     0.09       0.02      0.09
+"emptyenv"            0.02     0.09       0.02      0.09
+"is.data.frame"       0.02     0.09       0.02      0.09
+"paste0"              0.02     0.09       0.02      0.09
+"sys.call"            0.02     0.09       0.02      0.09
+"unclass"             0.02     0.09       0.02      0.09
+
+$by.total
+                       total.time total.pct self.time self.pct
+"create_deck"               22.06    100.00      0.02     0.09
+"system.time"               22.06    100.00      0.00     0.00
+"rbind"                     21.94     99.46     14.44    65.46
+"structure"                  4.00     18.13      3.98    18.04
+"Make.row.names"             2.62     11.88      2.62    11.88
+"seq.int"                    0.68      3.08      0.68     3.08
+"[[.data.frame"              0.08      0.36      0.04     0.18
+"[["                         0.08      0.36      0.00     0.00
+"%in%"                       0.06      0.27      0.04     0.18
+"match.names"                0.04      0.18      0.04     0.18
+"FUN"                        0.04      0.18      0.02     0.09
+"cmpfun"                     0.04      0.18      0.00     0.00
+"compiler:::tryCmpfun"       0.04      0.18      0.00     0.00
+"doTryCatch"                 0.04      0.18      0.00     0.00
+"ifelse"                     0.04      0.18      0.00     0.00
+"suppressWarnings"           0.04      0.18      0.00     0.00
+"tryCatch"                   0.04      0.18      0.00     0.00
+"tryCatchList"               0.04      0.18      0.00     0.00
+"tryCatchOne"                0.04      0.18      0.00     0.00
+"withCallingHandlers"        0.04      0.18      0.00     0.00
+"as.integer"                 0.02      0.09      0.02     0.09
+"attr"                       0.02      0.09      0.02     0.09
+"attributes"                 0.02      0.09      0.02     0.09
+"character"                  0.02      0.09      0.02     0.09
+"emptyenv"                   0.02      0.09      0.02     0.09
+"is.data.frame"              0.02      0.09      0.02     0.09
+"paste0"                     0.02      0.09      0.02     0.09
+"sys.call"                   0.02      0.09      0.02     0.09
+"unclass"                    0.02      0.09      0.02     0.09
+"cmp"                        0.02      0.09      0.00     0.00
+"cmpCall"                    0.02      0.09      0.00     0.00
+"constantFold"               0.02      0.09      0.00     0.00
+"constantFoldCall"           0.02      0.09      0.00     0.00
+"findCenvVar"                0.02      0.09      0.00     0.00
+"findLocalsList"             0.02      0.09      0.00     0.00
+"findLocalsList1"            0.02      0.09      0.00     0.00
+"funEnv"                     0.02      0.09      0.00     0.00
+"genCode"                    0.02      0.09      0.00     0.00
+"getFoldFun"                 0.02      0.09      0.00     0.00
+"getInlineInfo"              0.02      0.09      0.00     0.00
+"h"                          0.02      0.09      0.00     0.00
+"isBaseVar"                  0.02      0.09      0.00     0.00
+"lapply"                     0.02      0.09      0.00     0.00
+"levels.default"             0.02      0.09      0.00     0.00
+"levels"                     0.02      0.09      0.00     0.00
+"make.functionContext"       0.02      0.09      0.00     0.00
+"tryInline"                  0.02      0.09      0.00     0.00
+"vapply"                     0.02      0.09      0.00     0.00
+
+$sample.interval
+[1] 0.02
+
+$sampling.time
+[1] 22.06
+
+   user  system elapsed 
+  0.204   0.000   0.204 
+$by.self
+                        self.time self.pct total.time total.pct
+"rbind"                      0.10    45.45       0.16     72.73
+"create_deck_optimized"      0.02     9.09       0.22    100.00
+"[[.data.frame"              0.02     9.09       0.02      9.09
+"findCenvVar"                0.02     9.09       0.02      9.09
+"is.matrix"                  0.02     9.09       0.02      9.09
+"length"                     0.02     9.09       0.02      9.09
+"paste0"                     0.02     9.09       0.02      9.09
+
+$by.total
+                        total.time total.pct self.time self.pct
+"create_deck_optimized"       0.22    100.00      0.02     9.09
+"system.time"                 0.22    100.00      0.00     0.00
+"rbind"                       0.16     72.73      0.10    45.45
+"do.call"                     0.16     72.73      0.00     0.00
+"[[.data.frame"               0.02      9.09      0.02     9.09
+"findCenvVar"                 0.02      9.09      0.02     9.09
+"is.matrix"                   0.02      9.09      0.02     9.09
+"length"                      0.02      9.09      0.02     9.09
+"paste0"                      0.02      9.09      0.02     9.09
+"[["                          0.02      9.09      0.00     0.00
+"cb$putconst"                 0.02      9.09      0.00     0.00
+"cmp"                         0.02      9.09      0.00     0.00
+"cmpCall"                     0.02      9.09      0.00     0.00
+"cmpCallArgs"                 0.02      9.09      0.00     0.00
+"cmpCallSymFun"               0.02      9.09      0.00     0.00
+"cmpfun"                      0.02      9.09      0.00     0.00
+"cmpSymbolAssign"             0.02      9.09      0.00     0.00
+"compiler:::tryCmpfun"        0.02      9.09      0.00     0.00
+"constantFold"                0.02      9.09      0.00     0.00
+"constantFoldCall"            0.02      9.09      0.00     0.00
+"doTryCatch"                  0.02      9.09      0.00     0.00
+"genCode"                     0.02      9.09      0.00     0.00
+"getFoldFun"                  0.02      9.09      0.00     0.00
+"getInlineInfo"               0.02      9.09      0.00     0.00
+"h"                           0.02      9.09      0.00     0.00
+"isBaseVar"                   0.02      9.09      0.00     0.00
+"tryCatch"                    0.02      9.09      0.00     0.00
+"tryCatchList"                0.02      9.09      0.00     0.00
+"tryCatchOne"                 0.02      9.09      0.00     0.00
+"tryInline"                   0.02      9.09      0.00     0.00
+
+$sample.interval
+[1] 0.02
+
+$sampling.time
+[1] 0.22
+
+[1] TRUE

@@ -1,0 +1,12 @@
+sample.interval=20000
+"findCenvVar" "getInlineInfo" "isBaseVar" "getFoldFun" "constantFoldCall" "constantFold" "cmp" "genCode" "cb$putconst" "cmpCallArgs" "cmpCallSymFun" "cmpCall" "cmp" "cmpSymbolAssign" "h" "tryInline" "cmpCall" "cmp" "h" "tryInline" "cmpCall" "cmp" "genCode" "cmpfun" "doTryCatch" "tryCatchOne" "tryCatchList" "tryCatch" "compiler:::tryCmpfun" "create_deck_optimized" "system.time" 
+"[[.data.frame" "[[" "rbind" "rbind" "do.call" "create_deck_optimized" "system.time" 
+"rbind" "rbind" "do.call" "create_deck_optimized" "system.time" 
+"is.matrix" "is.matrix" "rbind" "rbind" "do.call" "create_deck_optimized" "system.time" 
+"rbind" "rbind" "do.call" "create_deck_optimized" "system.time" 
+"length" "length" "rbind" "rbind" "do.call" "create_deck_optimized" "system.time" 
+"rbind" "rbind" "do.call" "create_deck_optimized" "system.time" 
+"rbind" "rbind" "do.call" "create_deck_optimized" "system.time" 
+"rbind" "rbind" "do.call" "create_deck_optimized" "system.time" 
+"paste0" "create_deck_optimized" "system.time" 
+"create_deck_optimized" "system.time" 
