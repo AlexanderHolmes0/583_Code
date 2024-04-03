@@ -1,101 +1,54 @@
-create_deck <- function(num = 1) {
-  deck <- expand.grid(values = c(2:10, "A", "Q", "K", "J"), suits = c("S", "C", "D", "H"), stringsAsFactors = FALSE)
-  single <- deck
-  if (num > 1) {
-    for (i in 1:(num - 1)) {
-      deck <- rbind(deck, single)
-    }
-  }
-  deck$lookup <- paste0(deck$values, deck$suits)
-  deck$point <- suppressWarnings(ifelse(!is.na(as.integer(as.character(deck$values))), as.integer(as.character(deck$values)),
-                                        ifelse(deck$values %in% c("Q", "K", "J"), 10, 1)
-  ))
-  
-  return(deck)
-}
+create_deck <- function(num = 1) {  deck <- expand.grid(values = c(2:10, "A", "Q", "K", "J"), suits = c("S", "C", "D", "H"), stringsAsFactors = FALSE)  single <- deck  if (num > 1) {    for (i in 1:(num - 1)) {      deck <- rbind(deck, single)    }  }  deck$lookup <- paste0(deck$values, deck$suits)  deck$point <- suppressWarnings(ifelse(!is.na(as.integer(as.character(deck$values))), as.integer(as.character(deck$values)),                                        ifelse(deck$values %in% c("Q", "K", "J"), 10, 1)  ))    return(deck)}
 
-Rprof()
-system.time({res1 = create_deck(5000)})
-Rprof(NULL)
-summaryRprof()
+Rprof()res1 = create_deck(1000)Rprof(NULL)summaryRprof()system.time(create_deck(1000))
 
-   user  system elapsed 
- 21.656   0.392  22.143 
 $by.self
-                 self.time self.pct total.time total.pct
-"rbind"              14.44    65.46      21.94     99.46
-"structure"           3.98    18.04       4.00     18.13
-"Make.row.names"      2.62    11.88       2.62     11.88
-"seq.int"             0.68     3.08       0.68      3.08
-"[[.data.frame"       0.04     0.18       0.08      0.36
-"%in%"                0.04     0.18       0.06      0.27
-"match.names"         0.04     0.18       0.04      0.18
-"create_deck"         0.02     0.09      22.06    100.00
-"FUN"                 0.02     0.09       0.04      0.18
-"as.integer"          0.02     0.09       0.02      0.09
-"attr"                0.02     0.09       0.02      0.09
-"attributes"          0.02     0.09       0.02      0.09
-"character"           0.02     0.09       0.02      0.09
-"emptyenv"            0.02     0.09       0.02      0.09
-"is.data.frame"       0.02     0.09       0.02      0.09
-"paste0"              0.02     0.09       0.02      0.09
-"sys.call"            0.02     0.09       0.02      0.09
-"unclass"             0.02     0.09       0.02      0.09
+                  self.time self.pct total.time total.pct
+"rbind"                0.78    61.90       1.24     98.41
+"structure"            0.22    17.46       0.22     17.46
+"Make.row.names"       0.14    11.11       0.14     11.11
+"<Anonymous>"          0.02     1.59       0.02      1.59
+"any"                  0.02     1.59       0.02      1.59
+"is.factor"            0.02     1.59       0.02      1.59
+"lazyLoadDBfetch"      0.02     1.59       0.02      1.59
+"levels"               0.02     1.59       0.02      1.59
+"seq.int"              0.02     1.59       0.02      1.59
 
 $by.total
                        total.time total.pct self.time self.pct
-"create_deck"               22.06    100.00      0.02     0.09
-"system.time"               22.06    100.00      0.00     0.00
-"rbind"                     21.94     99.46     14.44    65.46
-"structure"                  4.00     18.13      3.98    18.04
-"Make.row.names"             2.62     11.88      2.62    11.88
-"seq.int"                    0.68      3.08      0.68     3.08
-"[[.data.frame"              0.08      0.36      0.04     0.18
-"[["                         0.08      0.36      0.00     0.00
-"%in%"                       0.06      0.27      0.04     0.18
-"match.names"                0.04      0.18      0.04     0.18
-"FUN"                        0.04      0.18      0.02     0.09
-"cmpfun"                     0.04      0.18      0.00     0.00
-"compiler:::tryCmpfun"       0.04      0.18      0.00     0.00
-"doTryCatch"                 0.04      0.18      0.00     0.00
-"ifelse"                     0.04      0.18      0.00     0.00
-"suppressWarnings"           0.04      0.18      0.00     0.00
-"tryCatch"                   0.04      0.18      0.00     0.00
-"tryCatchList"               0.04      0.18      0.00     0.00
-"tryCatchOne"                0.04      0.18      0.00     0.00
-"withCallingHandlers"        0.04      0.18      0.00     0.00
-"as.integer"                 0.02      0.09      0.02     0.09
-"attr"                       0.02      0.09      0.02     0.09
-"attributes"                 0.02      0.09      0.02     0.09
-"character"                  0.02      0.09      0.02     0.09
-"emptyenv"                   0.02      0.09      0.02     0.09
-"is.data.frame"              0.02      0.09      0.02     0.09
-"paste0"                     0.02      0.09      0.02     0.09
-"sys.call"                   0.02      0.09      0.02     0.09
-"unclass"                    0.02      0.09      0.02     0.09
-"cmp"                        0.02      0.09      0.00     0.00
-"cmpCall"                    0.02      0.09      0.00     0.00
-"constantFold"               0.02      0.09      0.00     0.00
-"constantFoldCall"           0.02      0.09      0.00     0.00
-"findCenvVar"                0.02      0.09      0.00     0.00
-"findLocalsList"             0.02      0.09      0.00     0.00
-"findLocalsList1"            0.02      0.09      0.00     0.00
-"funEnv"                     0.02      0.09      0.00     0.00
-"genCode"                    0.02      0.09      0.00     0.00
-"getFoldFun"                 0.02      0.09      0.00     0.00
-"getInlineInfo"              0.02      0.09      0.00     0.00
-"h"                          0.02      0.09      0.00     0.00
-"isBaseVar"                  0.02      0.09      0.00     0.00
-"lapply"                     0.02      0.09      0.00     0.00
-"levels.default"             0.02      0.09      0.00     0.00
-"levels"                     0.02      0.09      0.00     0.00
-"make.functionContext"       0.02      0.09      0.00     0.00
-"tryInline"                  0.02      0.09      0.00     0.00
-"vapply"                     0.02      0.09      0.00     0.00
+"create_deck"                1.26    100.00      0.00     0.00
+"rbind"                      1.24     98.41      0.78    61.90
+"structure"                  0.22     17.46      0.22    17.46
+"Make.row.names"             0.14     11.11      0.14    11.11
+"<Anonymous>"                0.02      1.59      0.02     1.59
+"any"                        0.02      1.59      0.02     1.59
+"is.factor"                  0.02      1.59      0.02     1.59
+"lazyLoadDBfetch"            0.02      1.59      0.02     1.59
+"levels"                     0.02      1.59      0.02     1.59
+"seq.int"                    0.02      1.59      0.02     1.59
+"[[.data.frame"              0.02      1.59      0.00     0.00
+"[["                         0.02      1.59      0.00     0.00
+"%in%"                       0.02      1.59      0.00     0.00
+"cmp"                        0.02      1.59      0.00     0.00
+"cmpCall"                    0.02      1.59      0.00     0.00
+"cmpfun"                     0.02      1.59      0.00     0.00
+"cmpSymbolAssign"            0.02      1.59      0.00     0.00
+"compiler:::tryCmpfun"       0.02      1.59      0.00     0.00
+"constantFold"               0.02      1.59      0.00     0.00
+"constantFoldSym"            0.02      1.59      0.00     0.00
+"doTryCatch"                 0.02      1.59      0.00     0.00
+"genCode"                    0.02      1.59      0.00     0.00
+"h"                          0.02      1.59      0.00     0.00
+"tryCatch"                   0.02      1.59      0.00     0.00
+"tryCatchList"               0.02      1.59      0.00     0.00
+"tryCatchOne"                0.02      1.59      0.00     0.00
+"tryInline"                  0.02      1.59      0.00     0.00
 
 $sample.interval
 [1] 0.02
 
 $sampling.time
-[1] 22.06
+[1] 1.26
 
+   user  system elapsed 
+  1.018   0.004   1.030 
