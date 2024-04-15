@@ -7,7 +7,7 @@ set.seed(seed = 123, "L'Ecuyer-CMRG")
 plan(sequential)
 
 jan <- read_parquet('../../data/fhvhv_tripdata_2024-01.parquet')
-
+jan <- jan[1:40000,]
 #tidymodels
 
 taxi_split <- initial_split(jan,strata = driver_pay)
