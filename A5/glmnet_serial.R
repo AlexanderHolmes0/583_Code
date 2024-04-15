@@ -6,7 +6,7 @@ set.seed(seed = 123, "L'Ecuyer-CMRG")
 
 plan(sequential)
 
-jan <- read_parquet('../data/fhvhv_tripdata_2024-01.parquet')
+jan <- read_parquet('../../data/fhvhv_tripdata_2024-01.parquet')
 
 #tidymodels
 
