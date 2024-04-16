@@ -1,11 +1,11 @@
 suppressMessages(library(arrow,quietly = TRUE))
 suppressMessages(library(tidymodels,verbose = FALSE,warn.conflicts = FALSE,quietly = TRUE))
 library(future)
-plan(multisession,workers = as.numeric(commandArgs(TRUE)[2]))
+plan(cluster,workers = as.numeric(commandArgs(TRUE)[2]))
 set.seed(seed = 123, "L'Ecuyer-CMRG")  
 
 #nc = as.numeric(commandArgs(TRUE)[2])   
-jan <- read_parquet('../../data/fhvhv_tripdata_2024-01.parquet')
+jan <- read_parquet('fhvhv_tripdata_2024-01.parquet')
 jan <- jan[1:400000,]
 
 #tidymodels
