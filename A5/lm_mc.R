@@ -2,7 +2,6 @@ suppressMessages(library(arrow,quietly = TRUE))
 suppressMessages(library(tidymodels,verbose = FALSE,warn.conflicts = FALSE,quietly = TRUE))
 library(future)
 plan(multisession, workers = as.numeric(commandArgs(TRUE)[2]))
-#set.seed(seed = 123, "L'Ecuyer-CMRG")  
 
 #nc = as.numeric(commandArgs(TRUE)[2])   
 jan <- read_parquet('fhvhv_tripdata_2024-01.parquet')
@@ -36,7 +35,7 @@ reg_metrics <- metric_set(rmse, mae, rsq)
 
 car_results <- car_workflow |>
   fit_resamples(resamples = taxi_folds,
-            control = control_resamples(parallel_over = 'everything'),
+            control = control_resamples(parallel_over = 'resamples'),
             metrics = reg_metrics)
 
 best_lm <- car_results %>%
@@ -56,3 +55,4 @@ test_metrics = final_fit |>
 cat("Rmse:",test_metrics[1] , "\n", "Rsq:" , test_metrics[2], "\n")
 
 plan(sequential)
+

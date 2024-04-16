@@ -2,7 +2,6 @@ suppressMessages(library(arrow,quietly = TRUE))
 suppressMessages(library(tidymodels,verbose = FALSE,warn.conflicts = FALSE,quietly = TRUE))
 library(future)
 plan(sequential)
-#set.seed(seed = 123, "L'Ecuyer-CMRG")  
 
 
 jan <- read_parquet('fhvhv_tripdata_2024-01.parquet')
@@ -51,3 +50,4 @@ test_metrics = final_fit |>
   pull(.estimate)
 
 cat("Rmse:",test_metrics[1] , "\n", "Rsq:" , test_metrics[2], "\n")
+
