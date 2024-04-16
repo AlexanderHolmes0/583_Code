@@ -14,9 +14,9 @@ pwd
 module load r
 module list
 
-time Rscript glmnet_serial.R
-time Rscript glmnet_mc.R --args 1
-time Rscript glmnet_mc.R --args 2
-time Rscript glmnet_mc.R --args 4
-time Rscript glmnet_mc.R --args 8
-time Rscript glmnet_mc.R --args 16
+time Rscript lm_serial.R
+time Rscript lm_mc.R --args 1
+time Rscript lm_mc.R --args 2
+time Rscript lm_mc.R --args 4
+time Rscript lm_mc.R --args 8
+time Rscript lm_mc.R --args 16

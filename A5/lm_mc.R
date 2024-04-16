@@ -1,5 +1,4 @@
 library(arrow)
-#arrow::install_arrow()
 library(tidymodels)
 library(future)
 set.seed(seed = 123, "L'Ecuyer-CMRG")  
@@ -7,7 +6,7 @@ set.seed(seed = 123, "L'Ecuyer-CMRG")
 nc = as.numeric(commandArgs(TRUE)[2])   
 plan(multisession(workers = nc))
 jan <- read_parquet('../../data/fhvhv_tripdata_2024-01.parquet')
-jan <- jan[1:40000,]
+jan <- jan[1:400000,]
 
 #tidymodels
 
@@ -25,20 +24,18 @@ taxi_recipe <- recipe(driver_pay ~ ., data = taxi_train) |>
   step_zv(all_predictors()) 
 
 
-glmnet_spec <- linear_reg(penalty = tune(),
-                          mixture = tune()) |> 
-  set_engine("glmnet") |> 
+lm_spec <- linear_reg() |> 
+  set_engine("lm") |> 
   set_mode('regression')
 
 car_workflow <- workflow() |> 
   add_recipe(taxi_recipe) |> 
-  add_model(glmnet_spec)
+  add_model(lm_spec)
 
 reg_metrics <- metric_set(rmse, mae, rsq)
 
 car_results <- car_workflow |>
-  tune_grid(resamples = taxi_folds,
-            grid = 10,
+  fit_resamples(resamples = taxi_folds,
             control = control_resamples(save_pred = T,parallel_over = 'everything'),
             metrics = reg_metrics)
 
