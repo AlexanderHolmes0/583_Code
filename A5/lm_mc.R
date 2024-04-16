@@ -42,8 +42,6 @@ car_results <- car_workflow |>
 best_lm <- car_results %>%
   select_best(metric = "rmse")
 
-best_lm
-
 final_wf <- 
   car_workflow %>% 
   finalize_workflow(best_lm)

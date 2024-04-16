@@ -35,13 +35,11 @@ reg_metrics <- metric_set(rmse, mae, rsq)
 
 car_results <- car_workflow |>
   fit_resamples(resamples = taxi_folds,
-                control = control_resamples(save_pred = T,parallel_over = 'everything'),
+                control = control_resamples(save_pred = T),
                 metrics = reg_metrics)
 
 best_lm <- car_results %>%
   select_best(metric = "rmse")
-
-best_lm
 
 final_wf <- 
   car_workflow %>% 
