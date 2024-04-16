@@ -1,4 +1,4 @@
-library(arrow,qtparquet = TRUE)
+library(arrow,quietly = TRUE)
 library(tidymodels,quietly = TRUE)
 library(future)
 plan(sequential)
