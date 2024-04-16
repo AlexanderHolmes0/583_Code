@@ -1,7 +1,7 @@
 suppressMessages(library(arrow,quietly = TRUE))
 suppressMessages(library(tidymodels,verbose = FALSE,warn.conflicts = FALSE,quietly = TRUE))
 library(future)
-plan(cluster, workers = as.numeric(commandArgs(TRUE)[2]))
+plan(multisession, workers = as.numeric(commandArgs(TRUE)[2]))
 set.seed(seed = 123, "L'Ecuyer-CMRG")  
 
 #nc = as.numeric(commandArgs(TRUE)[2])   
