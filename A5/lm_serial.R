@@ -1,12 +1,12 @@
-library(arrow)
-library(tidymodels)
+library(arrow,qtparquet = TRUE)
+library(tidymodels,quietly = TRUE)
 library(future)
 plan(sequential)
 set.seed(seed = 123, "L'Ecuyer-CMRG")  
 
 
 jan <- read_parquet('../../data/fhvhv_tripdata_2024-01.parquet')
-jan <- jan[1:400000,]
+#jan <- jan[1:400000,]
 #tidymodels
 
 taxi_split <- initial_split(jan,strata = driver_pay)
