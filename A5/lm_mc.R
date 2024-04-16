@@ -1,10 +1,10 @@
 library(arrow)
 library(tidymodels)
 library(future)
+plan(cluster,workers = as.numeric(commandArgs(TRUE)[2]))
 set.seed(seed = 123, "L'Ecuyer-CMRG")  
 
-nc = as.numeric(commandArgs(TRUE)[2])   
-plan(multisession(workers = nc))
+#nc = as.numeric(commandArgs(TRUE)[2])   
 jan <- read_parquet('../../data/fhvhv_tripdata_2024-01.parquet')
 jan <- jan[1:400000,]
 
