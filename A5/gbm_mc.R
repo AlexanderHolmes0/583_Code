@@ -1,5 +1,5 @@
-suppressMessages(library(parallel))
 suppressMessages(library(gbm))
+suppressMessages(library(arrow))
 suppressMessages(library(tidymodels))
 
 set.seed(seed = 123, "L'Ecuyer-CMRG")
