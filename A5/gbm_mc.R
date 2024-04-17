@@ -29,5 +29,5 @@ gbm.all = gbm(base_passenger_fare ~ ., data=train_prep, n.trees= 500, cv.folds =
 pred = predict(gbm.all, test_prep)
 
 rmse = sqrt(mean((pred - test_prep$base_passenger_fare)^2))
-cat("Serial rmse: ", rmse, "\n")
+cat(nc," core rmse: ", rmse, "\n")
 
