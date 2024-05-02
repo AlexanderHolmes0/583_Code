@@ -1,0 +1,10 @@
+openjdk version "1.8.0_402"
+OpenJDK Runtime Environment (build 1.8.0_402-b06)
+OpenJDK 64-Bit Server VM (build 25.402-b06, mixed mode)
+Error in dev.print(var_imp_plot, "best_model_variable_importance.png") : 
+  can only print from a screen device
+Execution halted
+
+real	56m43.644s
+user	6m14.798s
+sys	0m44.650s
