@@ -14,7 +14,7 @@ test = jan[i_test, ]
 
 # Define the recipe
 taxi_recipe <- recipe(base_passenger_fare ~ ., data = train) |> 
-  step_rm(originating_base_num,all_datetime_predictors(),PULocationID,DOLocationID) |> 
+  step_rm(originating_base_num,all_datetime_predictors(),PULocationID,DOLocationID, sales_tax) |> 
   step_dummy(all_nominal_predictors()) |> 
   step_normalize(all_numeric_predictors()) |>
   step_corr(all_numeric_predictors(), threshold = 0.9) |>
